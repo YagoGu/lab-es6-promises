@@ -94,18 +94,16 @@ const broccoliRecipe = async function makeBroccoli() {
     for (let step = 0; step < broccoli.length; step++) {
       let stepDesc = await obtainInstruction('broccoli', step)
       document.querySelector("#broccoli").innerHTML += `<li>${stepDesc}</li>`;
-    }
-    document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`; 
+    } 
   }
   catch(err) {
     console.log(err)
   }
   finally {
+    document.querySelector("#broccoli").innerHTML += `<li>Broccoli is ready!</li>`;
     document.querySelector("#broccoliImg").removeAttribute("hidden");
   }
 }
-
-broccoliRecipe();
 
 // Bonus 1 - Promise all
 // ... Done: Broccoli, steak, mashedPotatoes
