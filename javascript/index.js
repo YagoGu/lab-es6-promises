@@ -105,17 +105,34 @@ const broccoliRecipe = async function makeBroccoli() {
   }
 }
 
+broccoliRecipe();
+
 // Bonus 1 - Promise all
 // ... Done: Broccoli, steak, mashedPotatoes
 
 // Bonus 2 - Promise all
 // ...
 
-Promise.all([potatoesRecipe, steakRecipe, broccoliRecipe()])
+let arr = [];
+
+brusselsSprouts.forEach((step) => {
+      arr.push(step)
+})
+
+Promise.all(arr)
   .then(() => {
-    brusselsSprouts.forEach((step) => {
+    arr.forEach((step) => {
       document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`
     })
     document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
     document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
   })
+
+// Promise.all([potatoesRecipe, steakRecipe, broccoliRecipe()])
+//   .then(() => {
+//     brusselsSprouts.forEach((step) => {
+//       document.querySelector("#brusselsSprouts").innerHTML += `<li>${step}</li>`
+//     })
+//     document.querySelector("#brusselsSprouts").innerHTML += `<li>Brussels sprouts are ready!</li>`
+//     document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
+//   })
